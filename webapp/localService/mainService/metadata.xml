@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZMR_USAGE_THRESHOLD_CON_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ThresholdUsageOutput" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BillingClass"/>
+                    <PropertyRef Name="BillingPeriodMonth"/>
+                    <PropertyRef Name="BillingPeriodYear"/>
+                </Key>
+                <Property Name="BillingClass" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Billing Class" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RateCategory" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Rate Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BillingPeriodMonth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="BillingPeriodMonth" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BillingPeriodYear" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="BillingPeriodYear" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProfileRole" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ProfileRole" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Threshold" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Threshold" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CustomerNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CustomerNo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CustomerName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CustomerName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MeterNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="MeterNo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Address" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Installation" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Installation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DeviceLocation" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DeviceLocation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractAccount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ContractAccount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BillingPeriod" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="BillingPeriod" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidFrom" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ValidFrom" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidTo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ValidTo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrentMonthPeak" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CurrentMonthPeak" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrentMonthLow" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CurrentMonthLow" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastMonthPeak" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="LastMonthPeak" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastMonthLow" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="LastMonthLow" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastYearSameMonthPeak" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="LastYearSameMonthPeak" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastYearSameMonthLow" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="LastYearSameMonthLow" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PeakKWHDifference" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PeakKWHDifference" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LowKWHDifference" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="LowKWHDifference" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZMR_USAGE_THRESHOLD_CON_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ThresholdUsageOutputSet" EntityType="ZMR_USAGE_THRESHOLD_CON_SRV.ThresholdUsageOutput" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="http://sapsdvapp.aws.londonhydro.cloud:8000/sap/opu/odata/sap/ZMR_USAGE_THRESHOLD_CON_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://sapsdvapp.aws.londonhydro.cloud:8000/sap/opu/odata/sap/ZMR_USAGE_THRESHOLD_CON_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

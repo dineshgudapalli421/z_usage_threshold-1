@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../../../My_LH_Projects/Usage"
+		},
+		{
+			"name": "z_usage_threshold",
+			"path": "../../../../approve_projects/z_usage_threshold"
+		},
+		{
+			"name": "z_usage_threshold_2",
+			"path": "../../../../approve_projects/z_usage_threshold_2"
+		},
+		{
+			"name": "z_usage_threshold_basic",
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
