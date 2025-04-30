@@ -36,16 +36,17 @@
                     </fb:FilterGroupItem>
                 </fb:filterGroupItems> -->
                     <fb:filterGroupItems>
-                                <fb:FilterGroupItem name="Billing Analysis" 
-								label="Billing Analysis" 
+                                <fb:FilterGroupItem name="Billing Class" 
+								label="Billing Class" 
 								groupName="Group1" 
-								visibleInFilterBar="true">
+								visibleInFilterBar="true"
+                                mandatory="true">
                                     <fb:control>
                                         <Input
-                                             id="idBillingAnalysisFrm" 
+                                             id="idBillingClassFrm" 
 											 width="90%"  
 											 showValueHelp="true"
-											 value="{filters>/idBillingAnalysisFrm}"
+											 value="{filters>/idBillingClassFrm}"
                                         >
                                             <!-- <core:Item key="{key}" text="{name}"/> -->
                                         </Input>

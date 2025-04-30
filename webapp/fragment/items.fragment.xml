@@ -7,7 +7,7 @@
 >
 
 	<Table id="idTableUsgTresh"
-				rows="{/ThresholdUsageOutputSet}"
+				rows="{ThresholdModel>/}"
 				selectionMode="MultiToggle"
 				paste="onPaste"
 				ariaLabelledBy="title">
@@ -26,97 +26,97 @@
 					<Column width="11rem">
 						<m:Label text="Billing Class" />
 						<template>
-							<m:Text text="{BillingClass}"/>
+							<m:Text text="{ThresholdModel>BillingClass}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Rate Category" />
 						<template>
-							<m:Text text="{RateCategory}"/>
+							<m:Text text="{ThresholdModel>RateCategory}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Billing Period Month" />
 						<template>
-							<m:Text text="{BillingPeriodMonth}"/>
+							<m:Text text="{ThresholdModel>BillingPeriodMonth}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Billing Period Year" />
 						<template>
-							<m:Text text="{BillingPeriodYear}"/>
+							<m:Text text="{ThresholdModel>BillingPeriodYear}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Profile Role" />
 						<template>
-							<m:Text text="{ProfileRole}"/>
+							<m:Text text="{ThresholdModel>ProfileRole}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Threshold" />
 						<template>
-							<m:Text text="{Threshold}"/>
+							<m:Text text="{ThresholdModel>Threshold}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="CustomerNo" />
 						<template>
-							<m:Text text="{Customer No}"/>
+							<m:Text text="{ThresholdModel>CustomerNo}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Customer Name" />
 						<template>
-							<m:Text text="{CustomerName}"/>
+							<m:Text text="{ThresholdModel>CustomerName}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Meter No" />
 						<template>
-							<m:Text text="{MeterNo}"/>
+							<m:Text text="{ThresholdModel>MeterNo}"/>
 						</template>
 					</Column>                   
                     <Column width="11rem">
 						<m:Label text="Address" />
 						<template>
-							<m:Text text="{Address}"/>
+							<m:Text text="{ThresholdModel>Address}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Installation" />
 						<template>
-							<m:Text text="{Installation}"/>
+							<m:Text text="{ThresholdModel>Installation}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Device Location" />
 						<template>
-							<m:Text text="{DeviceLocation}"/>
+							<m:Text text="{ThresholdModel>DeviceLocation}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Contract Account" />
 						<template>
-							<m:Text text="{ContractAccount}"/>
+							<m:Text text="{ThresholdModel>ContractAccount}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Billing Period" />
 						<template>
-							<m:Text text="{BillingPeriod}"/>
+							<m:Text text="{ThresholdModel>BillingPeriod}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Valid From" />
 						<template>
-							<m:Text text="{ValidFrom}"/>
+							<m:Text text="{ThresholdModel>ValidFrom}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Valid To" />
 						<template>
-							<m:Text text="{ValidTo}"/>
+							<m:Text text="{ThresholdModel>ValidTo}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
@@ -128,43 +128,43 @@
                     <Column width="11rem">
 						<m:Label text="Current Month Low" />
 						<template>
-							<m:Text text="{CurrentMonthLow}"/>
+							<m:Text text="{ThresholdModel>CurrentMonthLow}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Last Month Peak" />
 						<template>
-							<m:Text text="{LastMonthPeak}"/>
+							<m:Text text="{ThresholdModel>LastMonthPeak}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Last Month Low" />
 						<template>
-							<m:Text text="{LastMonthLow}"/>
+							<m:Text text="{ThresholdModel>LastMonthLow}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Last Year Same Month Peak" />
 						<template>
-							<m:Text text="{LastYearSameMonthPeak}"/>
+							<m:Text text="{ThresholdModel>LastYearSameMonthPeak}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Last Year Same Month Low" />
 						<template>
-							<m:Text text="{LastYearSameMonthLow}"/>
+							<m:Text text="{ThresholdModel>LastYearSameMonthLow}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Peak KWH Difference" />
 						<template>
-							<m:Text text="{PeakKWHDifference}"/>
+							<m:Text text="{ThresholdModel>PeakKWHDifference}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
 						<m:Label text="Low KWH Difference" />
 						<template>
-							<m:Text text="{LowKWHDifference}"/>
+							<m:Text text="{ThresholdModel>LowKWHDifference}"/>
 						</template>
 					</Column>
                     
