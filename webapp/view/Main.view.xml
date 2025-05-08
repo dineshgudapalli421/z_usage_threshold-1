@@ -42,14 +42,18 @@
 								visibleInFilterBar="true"
                                 mandatory="true">
                                     <fb:control>
-                                        <Input
+                                        <!-- <Input
                                              id="idBillingClassFrm" 
 											 width="90%"  
-											 showValueHelp="true"
+											 showValueHelp="true" valueHelpRequest="onSingleConditionVHRequested"
 											 value="{filters>/idBillingClassFrm}"
                                         >
-                                            <!-- <core:Item key="{key}" text="{name}"/> -->
-                                        </Input>
+                                            <core:Item key="{key}" text="{name}"/>
+                                        </Input> -->
+                                        <MultiInput id="idBillingClassFrm"
+                                            valueHelpIconSrc="sap-icon://value-help" value="{filters>/idBillingClassFrm}"
+                                            width="60%"  
+                                            valueHelpRequest="onSingleConditionVHRequested"/>
                                         <!-- <Input
                                              id="idBillingAnalysisTo" 
 											 width="70%"   
@@ -65,14 +69,18 @@
 								groupName="Group1" 
 								visibleInFilterBar="true">
                                     <fb:control>
-                                        <Input
+                                        <!-- <Input
                                          id="idRateCategoryFrm" 
 										 width="90%"  
-										 showValueHelp="true"
+										 showValueHelp="false"
 										 value="{filters>/idRateCategoryFrm}"
                                         >
-                                            <!-- <core:Item key="{key}" text="{name}"/> -->
-                                        </Input>
+                                            <core:Item key="{key}" text="{name}"/>
+                                        </Input> -->
+                                        <MultiInput id="idRateCategoryFrm"
+                                            valueHelpIconSrc="sap-icon://value-help" value="{filters>/idRateCategoryFrm}"
+                                            width="60%"  
+                                            valueHelpRequest=".onRateCategoryVHRequested"/>
                                         <!-- <Input
                                          id="idRateCategoryTo" width="70%"  showValueHelp="true"
                                         >
@@ -104,15 +112,19 @@
 										</fb:FilterGroupItem>
 										 <!-- Profile Ratio -->
 										<fb:FilterGroupItem
-											name="profileRation"
-											label="Profile Ratio"
+											name="profileRole"
+											label="Profile Role"
 											groupName="Group1"
 											visibleInFilterBar="true">
 											<fb:control>
-												<Input id="profileRatio" 
+												<!-- <Input id="profileRatio" 
 												width="90%" 
-												showValueHelp="true"
-												value="{filters>/profileRatio}" placeholder="e.g. 1000 - 2000" />
+												showValueHelp="false"
+												value="{filters>/profileRatio}" placeholder="e.g. 1000 - 2000" /> -->
+                                                  <MultiInput id="profileRole"
+                                            valueHelpIconSrc="sap-icon://value-help" value="{filters>/profileRole}"
+                                            width="60%"  
+                                            valueHelpRequest=".onProfileRoleVHRequested"/>
 											</fb:control>
 										</fb:FilterGroupItem>
 										 <!-- Threshold -->
@@ -125,7 +137,7 @@
 												<Input 
 												id="thresholdfrm" 
 												width="90%" 
-												showValueHelp="true"
+												showValueHelp="false"
 												value="{filters>/thresholdfrm}" />
 											</fb:control>
 										</fb:FilterGroupItem>

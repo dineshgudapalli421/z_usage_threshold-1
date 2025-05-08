@@ -4,12 +4,18 @@ sap.ui.define([
 	'sap/ui/model/Filter',
 	'sap/ui/model/FilterOperator',
 	"sap/ui/model/json/JSONModel",
-	'sap/m/MessageBox'
-], (Controller, ODataModel, Filter, FilterOperator) => {
+	'sap/m/MessageBox',
+	'sap/ui/comp/library',
+    'sap/ui/model/type/String',
+    'sap/m/Token',
+	'sap/ui/comp/valuehelpdialog/ValueHelpDialog'
+], (Controller, ODataModel, Filter, FilterOperator, JSONModel, MessageBox, compLibrary, TypeString, Token, ValueHelpDialog) => {
 	"use strict";
 
 	return Controller.extend("com.sap.lh.mr.zusagethresholdbasic.controller.Main", {
 		onInit: function () {
+			this._oSingleConditionMultiInput = this.byId("idBillingClassFrm");
+
 
 			// idTableUsgTresh
 			// var oModel = new sap.ui.model.odata.v2.ODataModel("/ThresholdUsageOutputSet");
@@ -19,8 +25,36 @@ sap.ui.define([
 		onSearch: function () {
 			debugger;
 			const oView = this.getView();
-			var idBillingClassFrm = this.getView().byId("idBillingClassFrm").getValue();
-			var idRateCategoryFrm = this.getView().byId("idRateCategoryFrm").getValue();
+			var aTokens = this.getView().byId("idBillingClassFrm").getTokens();
+            var idBillingClassFrm = "";
+            if(aTokens.length === 0)
+            {
+                return MessageBox.error("Please select BillingClass");
+            }
+            else if(aTokens.length === 1){
+                idBillingClassFrm = aTokens[0].getText();
+                idBillingClassFrm = idBillingClassFrm.replace("=","");
+            }
+            else if(aTokens.length > 1){
+                return MessageBox.error("Select only one Billing Class...");
+            }
+			// var idBillingClassFrm = this.getView().byId("idBillingClassFrm").getValue();
+
+			var aTokensRateCategory = this.getView().byId("idRateCategoryFrm").getTokens();
+            var idRateCategoryFrm = "";
+            if(aTokensRateCategory.length === 0)
+            {
+                return MessageBox.error("Please select Rate Category");
+            }
+            else if(aTokensRateCategory.length === 1){
+                idRateCategoryFrm = aTokensRateCategory[0].getText();
+                idRateCategoryFrm = idRateCategoryFrm.replace("=","");
+            }
+            else if(aTokensRateCategory.length > 1){
+                return MessageBox.error("Select only one Rate Category...");
+            }
+
+			// var idRateCategoryFrm = this.getView().byId("idRateCategoryFrm").getValue();
 			if (idBillingClassFrm === "" || idRateCategoryFrm === "") {
 				return MessageBox.error("Billing Class and Rate Category are mandatory...");
 			}
@@ -35,7 +69,22 @@ sap.ui.define([
 				var endMonth = (oEndDate.getMonth() + 1).toString().padStart(2, '0');
 				var endYear = oEndDate.getFullYear().toString();
 			}
-			var profileRatio = this.getView().byId("profileRatio").getValue();
+
+			var aTokensProfileRole = this.getView().byId("profileRole").getTokens();
+            var profileRole = "";
+            if(aTokensProfileRole.length === 0)
+            {
+                return MessageBox.error("Please select profileRole");
+            }
+            else if(aTokensProfileRole.length === 1){
+                profileRole = aTokensProfileRole[0].getText();
+                profileRole = profileRole.replace("=","");
+            }
+            else if(aTokensProfileRole.length > 1){
+                return MessageBox.error("Select only one profileRole...");
+            }
+
+			// var ProfileRole = this.getView().byId("profileRole").getValue();
 			var thresholdfrm = this.getView().byId("thresholdfrm").getValue();
 			var aFilter = [];
 
@@ -49,7 +98,7 @@ sap.ui.define([
 			aFilter.push(new Filter("BillingPeriodMonth", FilterOperator.BT, startMonth, endMonth));
 			aFilter.push(new Filter("BillingPeriodYear", FilterOperator.BT, startYear, endYear));
 
-			aFilter.push(new Filter("ProfileRole", FilterOperator.EQ, profileRatio));
+			aFilter.push(new Filter("ProfileRole", FilterOperator.EQ, profileRole));
 			// oBinding.filter(oFilter);
 
 			// var oTable=this.getView().byId("idTableUsgTresh");
@@ -107,6 +156,94 @@ sap.ui.define([
 			// oTable.getBinding("items").filter(aTableFilters);
 			// oTable.setShowOverlay(false);
 		},
+		onSingleConditionVHRequested: function () {
+            this.loadFragment({
+                name: "com.sap.lh.mr.zusagethresholdbasic.fragment.billingclass"
+            }).then(function (oSingleConditionDialog) {
+                this._oSingleConditionDialog = oSingleConditionDialog;
+                oSingleConditionDialog.setRangeKeyFields([{
+                    label: "Billing Class",
+                    key: "billingClass",
+                    type: "string",
+                    typeInstance: new TypeString({}, {
+                        maxLength: 10
+                    })
+                }]);
+
+                oSingleConditionDialog.setTokens(this._oSingleConditionMultiInput.getTokens());
+                oSingleConditionDialog.open();
+            }.bind(this));
+        },
+		onSingleConditionValueHelpOkPress: function (oEvent) {
+            var aTokens = oEvent.getParameter("tokens");
+            this._oSingleConditionMultiInput.setTokens(aTokens);
+            this._oSingleConditionDialog.close();
+        },
+        onSingleConditionCancelPress: function () {
+            this._oSingleConditionDialog.close();
+        },
+        onSingleConditionAfterClose: function () {
+            this._oSingleConditionDialog.destroy();
+        },
+		
+
+		onRateCategoryVHRequested: function () {
+			this._oRateCategoryMultiInput = this.byId("idRateCategoryFrm");
+			this.loadFragment({
+				name: "com.sap.lh.mr.zusagethresholdbasic.fragment.ratecategory"
+			}).then(function (oDialog) {
+				this._oRateCategoryDialog = oDialog;
+				oDialog.setRangeKeyFields([{
+					label: "Rate Category",
+					key: "rateCategory",
+					type: "string",
+					typeInstance: new TypeString({}, { maxLength: 10 })
+				}]);
+				oDialog.setTokens(this._oRateCategoryMultiInput.getTokens());
+				oDialog.open();
+			}.bind(this));
+		},
+		onRateCategoryValueHelpOkPress: function (oEvent) {
+			var aTokens = oEvent.getParameter("tokens");
+			this._oRateCategoryMultiInput.setTokens(aTokens);
+			this._oRateCategoryDialog.close();
+		},
+		onRateCategoryCancelPress: function () {
+			this._oRateCategoryDialog.close();
+		},
+		onRateCategoryAfterClose: function () {
+			this._oRateCategoryDialog.destroy();
+		},
+		
+		
+		onProfileRoleVHRequested: function () {
+			this._oProfileRoleMultiInput = this.byId("profileRole");
+			this.loadFragment({
+				name: "com.sap.lh.mr.zusagethresholdbasic.fragment.profilerole"
+			}).then(function (oDialog) {
+				this._oProfileRoleDialog = oDialog;
+				oDialog.setRangeKeyFields([{
+					label: "Profile Role",
+					key: "profileRole",
+					type: "string",
+					typeInstance: new TypeString({}, { maxLength: 10 })
+				}]);
+				oDialog.setTokens(this._oProfileRoleMultiInput.getTokens());
+				oDialog.open();
+			}.bind(this));
+		},
+		onProfileRoleValueHelpOkPress: function (oEvent) {
+			var aTokens = oEvent.getParameter("tokens");
+			this._oProfileRoleMultiInput.setTokens(aTokens);
+			this._oProfileRoleDialog.close();
+		},
+		onProfileRoleCancelPress: function () {
+			this._oProfileRoleDialog.close();
+		},
+		onProfileRoleAfterClose: function () {
+			this._oProfileRoleDialog.destroy();
+		},
+
 
 
 	});

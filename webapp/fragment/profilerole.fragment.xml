@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:core="sap.ui.core">
+    <ValueHelpDialog 
+        title="Profile Role"
+        ok=".onProfileRoleValueHelpOkPress"
+        cancel=".onProfileRoleCancelPress"
+        key="profileRole"
+        descriptionKey="profileRole"
+        afterClose=".onProfileRoleAfterClose"
+        supportRanges="true"
+        supportRangesOnly="true"
+        maxConditions="1"/>
+</core:FragmentDefinition>

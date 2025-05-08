@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+xmlns="sap.ui.comp.valuehelpdialog"
+xmlns:core="sap.ui.core">
+<ValueHelpDialog 
+        title="Billing Class"
+        ok=".onSingleConditionValueHelpOkPress"
+        cancel=".onSingleConditionCancelPress"
+        key="billingClass"
+        descriptionKey="billingClass"
+        afterClose=".onSingleConditionAfterClose"
+        supportRanges="true"
+        supportRangesOnly="true"
+        maxConditions="1"/>
+</core:FragmentDefinition>
