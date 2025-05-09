@@ -27,37 +27,77 @@ sap.ui.define([
 			const oView = this.getView();
 			var aTokens = this.getView().byId("idBillingClassFrm").getTokens();
             var idBillingClassFrm = "";
-            if(aTokens.length === 0)
-            {
+			var aFilter = [];
+            if (aTokens.length === 0) {
                 return MessageBox.error("Please select BillingClass");
             }
-            else if(aTokens.length === 1){
+            else if (aTokens.length === 1) {
                 idBillingClassFrm = aTokens[0].getText();
-                idBillingClassFrm = idBillingClassFrm.replace("=","");
+                idBillingClassFrm = idBillingClassFrm.replace("=", "");
+                aFilter.push(new Filter("BillingClass", FilterOperator.EQ, idBillingClassFrm));
             }
-            else if(aTokens.length > 1){
-                return MessageBox.error("Select only one Billing Class...");
+            else if (aTokens.length === 2) {
+                //return MessageBox.error("Select only one BillingClass...");
+                var idBillingClassFrm1 = aTokens[0].getText();
+                idBillingClassFrm1 = idBillingClassFrm1.replace("=", "");
+                var idBillingClassFrm2 = aTokens[1].getText();
+                idBillingClassFrm2 = idBillingClassFrm2.replace("=", "");
+                aFilter.push(new Filter("BillingClass", FilterOperator.BT, idBillingClassFrm1, idBillingClassFrm2));
+                
             }
+            else if (aTokens.length > 2) {
+                //return MessageBox.error("Select only one BillingClass...");               
+                for (let i = 0; i <= aTokens.length - 1; i++) {
+                    idBillingClassFrm = aTokens[i].getText();
+                    idBillingClassFrm = idBillingClassFrm.replace("=", "");
+                    aFilter.push(new Filter("BillingClass", FilterOperator.EQ, idBillingClassFrm));
+                }
+            }
+
+            // if(aTokens.length === 0)
+            // {
+            //     return MessageBox.error("Please select BillingClass");
+            // }
+            // else if(aTokens.length === 1){
+            //     idBillingClassFrm = aTokens[0].getText();
+            //     idBillingClassFrm = idBillingClassFrm.replace("=","");
+            // }
+            // else if(aTokens.length > 1){
+            //     return MessageBox.error("Select only one Billing Class...");
+            // }
 			// var idBillingClassFrm = this.getView().byId("idBillingClassFrm").getValue();
 
 			var aTokensRateCategory = this.getView().byId("idRateCategoryFrm").getTokens();
             var idRateCategoryFrm = "";
-            if(aTokensRateCategory.length === 0)
-            {
-                return MessageBox.error("Please select Rate Category");
+			if (aTokensRateCategory.length === 0) {
+                return MessageBox.error("Please select RateCategory");
             }
-            else if(aTokensRateCategory.length === 1){
+            else if (aTokensRateCategory.length === 1) {
                 idRateCategoryFrm = aTokensRateCategory[0].getText();
-                idRateCategoryFrm = idRateCategoryFrm.replace("=","");
+                idRateCategoryFrm = idRateCategoryFrm.replace("=", "");
+                aFilter.push(new Filter("RateCategory", FilterOperator.EQ, idRateCategoryFrm));
             }
-            else if(aTokensRateCategory.length > 1){
-                return MessageBox.error("Select only one Rate Category...");
+            else if (aTokensRateCategory.length === 2) {
+                //return MessageBox.error("Select only one RateCategory...");
+                var idRateCategoryFrm1 = aTokensRateCategory[0].getText();
+                idRateCategoryFrm1 = idRateCategoryFrm1.replace("=", "");
+                var idRateCategoryFrm2 = aTokensRateCategory[1].getText();
+                idRateCategoryFrm2 = idRateCategoryFrm2.replace("=", "");
+                aFilter.push(new Filter("RateCategory", FilterOperator.BT, idRateCategoryFrm1, idRateCategoryFrm2));
+                
             }
-
+            else if (aTokensRateCategory.length > 2) {
+                //return MessageBox.error("Select only one RateCategory...");               
+                for (let i = 0; i <= aTokensRateCategory.length - 1; i++) {
+                    idRateCategoryFrm = aTokensRateCategory[i].getText();
+                    idRateCategoryFrm = idRateCategoryFrm.replace("=", "");
+                    aFilter.push(new Filter("RateCategory", FilterOperator.EQ, idRateCategoryFrm));
+                }
+            }
 			// var idRateCategoryFrm = this.getView().byId("idRateCategoryFrm").getValue();
-			if (idBillingClassFrm === "" || idRateCategoryFrm === "") {
-				return MessageBox.error("Billing Class and Rate Category are mandatory...");
-			}
+			// if (idBillingClassFrm === "" || idRateCategoryFrm === "") {
+			// 	return MessageBox.error("Billing Class and Rate Category are mandatory...");
+			// }
 			//  var billingPeriodRange = this.getView().byId("billingPeriodRange").getValue();
 			var oDateRangeSelection = this.getView().byId("billingPeriodRange");
 			var oStartDate = oDateRangeSelection.getDateValue();  // Start Date
@@ -71,25 +111,39 @@ sap.ui.define([
 			}
 
 			var aTokensProfileRole = this.getView().byId("profileRole").getTokens();
-            var profileRole = "";
-            if(aTokensProfileRole.length === 0)
-            {
+			var profileRole = "";
+			if (aTokensProfileRole.length === 0) {
                 return MessageBox.error("Please select profileRole");
             }
-            else if(aTokensProfileRole.length === 1){
+            else if (aTokensProfileRole.length === 1) {
                 profileRole = aTokensProfileRole[0].getText();
-                profileRole = profileRole.replace("=","");
+                profileRole = profileRole.replace("=", "");
+                aFilter.push(new Filter("ProfileRole", FilterOperator.EQ, profileRole));
             }
-            else if(aTokensProfileRole.length > 1){
-                return MessageBox.error("Select only one profileRole...");
+            else if (aTokensProfileRole.length === 2) {
+                //return MessageBox.error("Select only one profileRole...");
+                var profileRole1 = aTokensProfileRole[0].getText();
+                profileRole1 = profileRole1.replace("=", "");
+                var profileRole2 = aTokensProfileRole[1].getText();
+                profileRole2 = profileRole2.replace("=", "");
+                aFilter.push(new Filter("ProfileRole", FilterOperator.BT, profileRole1, profileRole2));
+                
             }
-
+            else if (aTokensProfileRole.length > 2) {
+                //return MessageBox.error("Select only one profileRole...");               
+                for (let i = 0; i <= aTokensProfileRole.length - 1; i++) {
+                    profileRole = aTokensProfileRole[i].getText();
+                    profileRole = profileRole.replace("=", "");
+                    aFilter.push(new Filter("ProfileRole", FilterOperator.EQ, profileRole));
+                }
+            }
+           
 			// var ProfileRole = this.getView().byId("profileRole").getValue();
 			var thresholdfrm = this.getView().byId("thresholdfrm").getValue();
-			var aFilter = [];
+			// var aFilter = [];
 
-			aFilter.push(new Filter("BillingClass", FilterOperator.EQ, idBillingClassFrm));
-			aFilter.push(new Filter("RateCategory", FilterOperator.EQ, idRateCategoryFrm));
+			// aFilter.push(new Filter("BillingClass", FilterOperator.EQ, idBillingClassFrm));
+			// aFilter.push(new Filter("RateCategory", FilterOperator.EQ, idRateCategoryFrm));
 			// aFilter.push(new Filter("BillingPeriodMonth", FilterOperator.BT, "07","08"));
 			// aFilter.push(new Filter("BillingPeriodYear", FilterOperator.BT, "2024","2024"));
 
@@ -98,7 +152,7 @@ sap.ui.define([
 			aFilter.push(new Filter("BillingPeriodMonth", FilterOperator.BT, startMonth, endMonth));
 			aFilter.push(new Filter("BillingPeriodYear", FilterOperator.BT, startYear, endYear));
 
-			aFilter.push(new Filter("ProfileRole", FilterOperator.EQ, profileRole));
+			// aFilter.push(new Filter("ProfileRole", FilterOperator.EQ, profileRole));
 			// oBinding.filter(oFilter);
 
 			// var oTable=this.getView().byId("idTableUsgTresh");
@@ -161,12 +215,13 @@ sap.ui.define([
                 name: "com.sap.lh.mr.zusagethresholdbasic.fragment.billingclass"
             }).then(function (oSingleConditionDialog) {
                 this._oSingleConditionDialog = oSingleConditionDialog;
+				this.getView().addDependent(oSingleConditionDialog);
                 oSingleConditionDialog.setRangeKeyFields([{
                     label: "Billing Class",
                     key: "billingClass",
                     type: "string",
                     typeInstance: new TypeString({}, {
-                        maxLength: 10
+                        maxLength: 7
                     })
                 }]);
 
@@ -193,6 +248,7 @@ sap.ui.define([
 				name: "com.sap.lh.mr.zusagethresholdbasic.fragment.ratecategory"
 			}).then(function (oDialog) {
 				this._oRateCategoryDialog = oDialog;
+				this.getView().addDependent(oDialog);
 				oDialog.setRangeKeyFields([{
 					label: "Rate Category",
 					key: "rateCategory",
@@ -222,6 +278,7 @@ sap.ui.define([
 				name: "com.sap.lh.mr.zusagethresholdbasic.fragment.profilerole"
 			}).then(function (oDialog) {
 				this._oProfileRoleDialog = oDialog;
+				this.getView().addDependent(oDialog);
 				oDialog.setRangeKeyFields([{
 					label: "Profile Role",
 					key: "profileRole",

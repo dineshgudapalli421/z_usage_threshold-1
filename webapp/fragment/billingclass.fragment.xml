@@ -9,6 +9,5 @@ xmlns:core="sap.ui.core">
         descriptionKey="billingClass"
         afterClose=".onSingleConditionAfterClose"
         supportRanges="true"
-        supportRangesOnly="true"
-        maxConditions="1"/>
+        supportRangesOnly="true"/>
 </core:FragmentDefinition>

@@ -7,6 +7,5 @@
         descriptionKey="rateCategory"
         afterClose=".onRateCategoryAfterClose"
         supportRanges="true"
-        supportRangesOnly="true"
-        maxConditions="1"/>
+        supportRangesOnly="true"/>
 </core:FragmentDefinition>
