@@ -23,18 +23,18 @@
 							<m:Text text="{Name}" wrapping="false" />
 						</template>
 					</Column> -->
-					<Column width="11rem">
+					<!-- <Column width="11rem">
 						<m:Label text="Billing Class" />
 						<template>
 							<m:Text text="{ThresholdModel>BillingClass}"/>
 						</template>
-					</Column>
-                    <Column width="11rem">
+					</Column> -->
+                    <!-- <Column width="11rem">
 						<m:Label text="Rate Category" />
 						<template>
 							<m:Text text="{ThresholdModel>RateCategory}"/>
 						</template>
-					</Column>
+					</Column> -->
                     <!-- <Column width="11rem">
 						<m:Label text="Billing Period Month" />
 						<template>
