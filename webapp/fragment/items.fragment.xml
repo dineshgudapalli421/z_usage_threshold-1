@@ -35,32 +35,32 @@
 							<m:Text text="{ThresholdModel>RateCategory}"/>
 						</template>
 					</Column>
-                    <Column width="11rem">
+                    <!-- <Column width="11rem">
 						<m:Label text="Billing Period Month" />
 						<template>
 							<m:Text text="{ThresholdModel>BillingPeriodMonth}"/>
 						</template>
-					</Column>
-                    <Column width="11rem">
+					</Column> -->
+                    <!-- <Column width="11rem">
 						<m:Label text="Billing Period Year" />
 						<template>
 							<m:Text text="{ThresholdModel>BillingPeriodYear}"/>
 						</template>
-					</Column>
-                    <Column width="11rem">
+					</Column> -->
+                    <!-- <Column width="11rem">
 						<m:Label text="Profile Role" />
 						<template>
 							<m:Text text="{ThresholdModel>ProfileRole}"/>
 						</template>
-					</Column>
-                    <Column width="11rem">
+					</Column> -->
+                    <!-- <Column width="11rem">
 						<m:Label text="Threshold" />
 						<template>
 							<m:Text text="{ThresholdModel>Threshold}"/>
 						</template>
-					</Column>
+					</Column> -->
                     <Column width="11rem">
-						<m:Label text="CustomerNo" />
+						<m:Label text="Customer Number" />
 						<template>
 							<m:Text text="{ThresholdModel>CustomerNo}"/>
 						</template>
@@ -72,7 +72,7 @@
 						</template>
 					</Column>
                     <Column width="11rem">
-						<m:Label text="Meter No" />
+						<m:Label text="Meter Number" />
 						<template>
 							<m:Text text="{ThresholdModel>MeterNo}"/>
 						</template>

@@ -65,7 +65,7 @@
                                 </fb:FilterGroupItem>
                                  <!-- <core:Title  /> -->
                                 <fb:FilterGroupItem name="RateCategory " 
-								label="RateCategory " 
+								label="Rate Category " 
 								groupName="Group1" 
 								visibleInFilterBar="true">
                                     <fb:control>
