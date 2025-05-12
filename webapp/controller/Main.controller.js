@@ -151,6 +151,7 @@ sap.ui.define([
 			// Filter for the selected range (from start month-year to end month-year)
 			aFilter.push(new Filter("BillingPeriodMonth", FilterOperator.BT, startMonth, endMonth));
 			aFilter.push(new Filter("BillingPeriodYear", FilterOperator.BT, startYear, endYear));
+			aFilter.push(new Filter("Threshold", FilterOperator.EQ, thresholdfrm));
 
 			// aFilter.push(new Filter("ProfileRole", FilterOperator.EQ, profileRole));
 			// oBinding.filter(oFilter);

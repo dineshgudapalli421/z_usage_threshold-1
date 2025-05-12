@@ -122,7 +122,7 @@
                     <Column width="11rem">
 						<m:Label text="Current Month Peak" />
 						<template>
-							<m:Text text="{CurrentMonthPeak}"/>
+							<m:Text text="{ThresholdModel>CurrentMonthPeak}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
