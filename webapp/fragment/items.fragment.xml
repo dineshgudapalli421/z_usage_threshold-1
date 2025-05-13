@@ -156,13 +156,13 @@
 						</template>
 					</Column>
                     <Column width="11rem">
-						<m:Label text="Peak KWH Difference" />
+						<m:Label text="Peak KWH Difference %" />
 						<template>
 							<m:Text text="{ThresholdModel>PeakKWHDifference}"/>
 						</template>
 					</Column>
                     <Column width="11rem">
-						<m:Label text="Low KWH Difference" />
+						<m:Label text="Low KWH Difference %" />
 						<template>
 							<m:Text text="{ThresholdModel>LowKWHDifference}"/>
 						</template>
